@@ -43,9 +43,12 @@ public class ItemContentBehaviour : MonoBehaviour
     }
     public void SellItem()
     {
-        Currency.CalculateMoney(myItem.m_price/2);
-        InventoryBehaviour.Instance.RemoveItem(myItem);
-        InventoryBehaviour.Instance.ListItems();
+        if (!isActive)
+        {
+            Currency.CalculateMoney(myItem.m_price / 2);
+            InventoryBehaviour.Instance.RemoveItem(myItem);
+            InventoryBehaviour.Instance.ListItems();
+        }
     }
     public void BuyItem()
     {

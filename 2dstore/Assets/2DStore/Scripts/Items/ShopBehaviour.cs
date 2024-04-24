@@ -9,10 +9,13 @@ public class ShopBehaviour : MonoBehaviour
     [SerializeField] Transform _itensContent;
     [SerializeField] GameObject _intentoryItem;
 
+    private bool m_isOpen;
+
     public void OnOffShop()
     {
         bool enable = _shopUI.activeSelf ? false : true;
         _shopUI.SetActive(enable);
+        m_isOpen = enable;
 
         if (enable)
             DisplayShopItems();
@@ -50,6 +53,17 @@ public class ShopBehaviour : MonoBehaviour
             itn.LinkItem(item);
             itn.ShopItemSetup(item.m_name,item.m_price, item.m_icon);
         }
+    }
+
+    public bool IsShopOpen()
+    {
+        return m_isOpen;
+    }
+
+    public void CloseShop()
+    {
+        _shopUI.SetActive(false);
+        m_isOpen = false;
     }
 
 }

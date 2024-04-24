@@ -12,4 +12,9 @@ public class StoreNPCBehaviour : InteractiveAction
         
         _shop.OnOffShop();
     }
+    private void Update()
+    {
+        if (!m_isActionPossible && _shop.IsShopOpen())
+            _shop.CloseShop();
+    }
 }
