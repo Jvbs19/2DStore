@@ -12,7 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = m_movementInput * _speed;
+        _rigidbody.linearVelocity = m_movementInput * _speed;
     }
 
     private void OnMove(InputValue inputValue)
